@@ -1,47 +1,46 @@
 ***DB Design in Code***
 
 
+
 Customers {
 	customer_id integer pk increments unique
 	customer_name varchar(30)
-	customer_email varchar(50)
-	customer_country varchar
-	customer_city varchar
-	customer's_topics integer > Topics.Topic_id
-	customer's_subscription integer null > Subscription.subscription_id
-	customer_notification integer >* Notification.customer_id
-	note_id integer *> Notes.note_id
+	customer_email varchar(50) unique
+	customer_country varchar(15)
+	keyword_id integer >* Keywords.keyword_id
+	subscription_id integer > Subscriptions.subscription_id
+	notification_id integer > Notifications.notification_id
+	topic_id integer >* Topics.topic_id
+}
+
+Subscriptions {
+	subscription_id integer pk increments unique
+	subscription_start_date integer
+	subscription_expiration_date integer
+	subscription_cost integer
+}
+
+Notifications {
+	notification_id integer pk increments unique
+	notification_type varchar(20)
 }
 
 Notes {
 	note_id integer pk increments unique
-	note_title varchar
-	note_abstract varchar
-	note_author integer *> Authors.author_id
-	note_create_date date
-}
-
-Subscription {
-	subscription_id integer pk increments unique
-	subscription_start_date date
-	subscription_expiration_date date
-	subscription_cost decimal
+	note_title varchar(30)
+	note_abstract varchar(50) null
+	note_author varchar(30)
+	keyword_id integer >* Keywords.keyword_id
+	topic_id integer >* Topics.topic_id
 }
 
 Topics {
-	Topic_id integer pk increments unique
-	topic_name varchar(25)
-	keyword_id integer >* Keywords.keyword_id
+	topic_id integer pk increments unique
+	topic_title integer
 }
 
 Keywords {
 	keyword_id integer pk increments unique
-	keyword_name varchar(25)
-}
-
-Notification {
-	notification_id integer pk increments unique
-	customer_id integer > undefined.id
-	type_of_notification text
+	keyword_title integer
 }
 
