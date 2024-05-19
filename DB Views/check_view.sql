@@ -1,0 +1,4 @@
+CREATE VIEW check_country AS
+SELECT *
+FROM customers
+WITH CHECK OPTION;
