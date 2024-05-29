@@ -1,0 +1,40 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap">
+    <title>Note Home</title>
+    <style>
+        html {
+            background-color: rgb(222, 207, 141);
+            font-family: "Oswald",Sans-Serif;
+            color: rgb(40,4,100);
+        }
+
+        body {
+            margin-left: 10%;
+            margin-right: 10%;
+            border: 1px solid rgb(0, 136, 255);
+            text-align: center;
+        }
+
+        ul {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Newsletter Note</h1>
+    <a href="/create">Create New Note</a>
+    <ul>
+        {% for note in notes %}
+            <li>
+                <h2>{{ note.title }}</h2>
+                <p>{{ note.content }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

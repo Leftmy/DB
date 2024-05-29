@@ -1,0 +1,44 @@
+<!-- templates/create_post.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap">
+    <title>Create Note</title>
+    <style>
+
+
+        html {
+            background-color: rgb(222, 207, 141);
+            font-family: "Oswald",Sans-Serif;
+            color: rgb(40,4,100);
+        }
+
+        body {
+            margin-left: 10%;
+            margin-right: 10%;
+            border: 1px solid rgb(40,4,100);
+            text-align: center;
+        }
+
+        form {
+            margin-left: 30%;
+            margin-right: 30%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create a New Note</h1>
+    <form action="\note" method="post">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br>
+
+        <label for="content">Content:</label><br>
+        <textarea id="content" name="content" required></textarea><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <a href="/">Back to Home</a>
+</body>
+</html>
